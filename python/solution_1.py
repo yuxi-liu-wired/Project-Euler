@@ -2,8 +2,10 @@
 from utils.functional import *
 import itertools
 
-stream = gen_filter(or_filter(is_multiple_of(3), is_multiple_of(5)), natnums())
 
-
-def answer(n):
+def answer():
+    n = 1000
+    stream = gen_filter(
+        or_filter(is_multiple_of(3), is_multiple_of(5)), itertools.count(1)
+    )
     return sum(itertools.takewhile(lambda x: x < n, stream))
